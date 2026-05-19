@@ -2,12 +2,13 @@ pub mod state;
 use anchor_lang::prelude::*;
 
 pub mod constants;
+pub mod error;
 pub mod instructions;
 
-pub use constants::*;
+// pub use constants::*;
 pub use instructions::*;
 pub use state::*;
-declare_id!("9w81bqMiXJh8Xg1DVj3fTENPe1hGgwTwAap4NnhtvgDt");
+declare_id!("24UpHQhbwrBNJCdVaSJ7HSBta3aAM2R9yn8yA4DUiRqu");
 
 #[program]
 pub mod anchor_vault_q2_2026 {
@@ -16,19 +17,15 @@ pub mod anchor_vault_q2_2026 {
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
         ctx.accounts.initialize(&ctx.bumps)
     }
-    
-    
-    
-    
-    // deposit funds
+
     pub fn deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
         ctx.accounts.deposit(amount)
     }
-    // withdraw funds 
+
     pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
         ctx.accounts.withdraw(amount)
     }
-    // close
+
     pub fn close(ctx: Context<Close>) -> Result<()> {
         ctx.accounts.close()
     }

@@ -6,14 +6,13 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-anchor_vault_q2_2026 = "9w81bqMiXJh8Xg1DVj3fTENPe1hGgwTwAap4NnhtvgDt"
-
-[registry]
-url = "https://api.apr.dev"
+anchor_vault_q2_2026 = "24UpHQhbwrBNJCdVaSJ7HSBta3aAM2R9yn8yA4DUiRqu"
 
 [provider]
 cluster = "localnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
-test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 \"tests/**/*.ts\""
+test = "cargo test --test test_initialize -- --nocapture"
+
+[hooks]
